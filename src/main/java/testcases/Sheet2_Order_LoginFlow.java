@@ -36,13 +36,13 @@ public class Sheet2_Order_LoginFlow extends ProjectMethods{
 			.choosecolorforsecondproduct()
 			.choosesize()
 			.addtocart()
-			.viewCart()
-			.emailsection()
+			.viewCart();
+		/*	.emailsection()
 			.shippingsection()
 			.billingsection()
 			.entercouponcode(code)
 			.placeorderButtonclick()
-			.orderConfirmationmessage();
+			.orderConfirmationmessage();*/
 			
 			
 			

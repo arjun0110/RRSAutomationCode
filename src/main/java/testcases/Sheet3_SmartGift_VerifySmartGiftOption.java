@@ -33,9 +33,8 @@ public class Sheet3_SmartGift_VerifySmartGiftOption extends ProjectMethods{
 		.viewgift()
 		.clickcategory()
 		.shoeselect()
-		.viewgifts()
-		.enterprodname(name)
 		.viewgifts();
+		
 	}
 	
 

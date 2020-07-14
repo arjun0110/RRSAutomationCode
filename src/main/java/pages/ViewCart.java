@@ -1,8 +1,5 @@
 package pages;
 
-import java.awt.AWTException;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -19,7 +16,7 @@ public class ViewCart extends ProjectMethods{
 	
 	
 	
-	@FindBy(how=How.XPATH,using="//*[contains(@class,'cart-title')]")
+	@FindBy(how=How.XPATH,using="//*[contains(@class,'top-cart-title-tile')]")
 	private WebElement cartsuccessmessage;
 	
 	
@@ -265,7 +262,7 @@ public class ViewCart extends ProjectMethods{
 	
 	@FindBy(how=How.XPATH,using="//*[contains(@id,'rrsglobalnav-womens')]/p")
 	private WebElement category;
-	@FindBy(how=How.XPATH,using="//*[contains(@href,'/rrs/womensshoes/womensracing/?cm_sp=nav-_-womens-_-racing')]")
+	@FindBy(how=How.XPATH,using="//*[(@href='/rrs/category/womens-racing-shoes/')]")
 	private WebElement subcategory;
 	
 	
@@ -301,12 +298,6 @@ public class ViewCart extends ProjectMethods{
 	public HomePage_RRS viewgifts() 
 	{
 		
-		try {
-			pageScroll();
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		
 		verifyDisplayed(giftlinks);

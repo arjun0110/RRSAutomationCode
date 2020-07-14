@@ -31,12 +31,12 @@ public class Sheet3_SitePersonalisation_PreviousshorepurchaseandNextModel extend
 		.welcometext()
 		.previousorder()
 		.nextorder()
-		.chooseashoe()
+		//.chooseashoe()
 		.clickLogo()
 		.accessories()
 		.chooseanInsole()
-		.clickLogo()
-		.recentprod();
+		.clickLogo();
+		//.recentprod();
 		
 		
 		

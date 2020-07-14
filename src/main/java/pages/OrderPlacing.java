@@ -14,7 +14,7 @@ public class OrderPlacing extends ProjectMethods{
 	
 }
 	
-	@FindBy(how=How.XPATH,using="//*[@id='clickButton' and @value='PLACE YOUR ORDER']")
+	@FindBy(how=How.XPATH,using="//*[@id='clickButton']")
 	private WebElement placeOrder;
 		
 	

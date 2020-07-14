@@ -1,7 +1,6 @@
 package wdMethods;
 
 import java.awt.AWTException;
-import java.awt.Desktop.Action;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -19,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -40,7 +38,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utils.Reporter;
@@ -48,8 +45,7 @@ import utils.Reporter;
 public class SeMethods extends Reporter implements WdMethods{
 
 	public static RemoteWebDriver driver;
-	public String sUrl,sHubUrl,sHubPort;
-	public Properties prop;
+	public String sUrl,sHubUrl,sHubPort; Properties prop;
 	
 	public SeMethods() {
 		prop = new Properties();
@@ -65,17 +61,20 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 	
+	@Override
 	public void typewithenter(WebElement ele) {
 		
 		ele.sendKeys( Keys.ENTER);
 		
 	}
 
+	@Override
 	public void startApp(String browser, boolean bRemote) {
 		try {
 			DesiredCapabilities dc = new DesiredCapabilities();
 			dc.setBrowserName(browser);
 			dc.setPlatform(Platform.WINDOWS);
+	
 			
 			// this is for grid run
 			if(bRemote)
@@ -87,9 +86,10 @@ public class SeMethods extends Reporter implements WdMethods{
 				if(browser.equalsIgnoreCase("chrome")){
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--disable-notifications");
+					
 					System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-					 driver =new ChromeDriver(options);
-				}else {
+					 driver =new ChromeDriver (options);
+				}else if(browser.equalsIgnoreCase("firefox")){
 					System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
 					driver = new FirefoxDriver();
 				}
@@ -109,6 +109,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		startApp(browser, false);
 	}
 
+	@Override
 	public WebElement locateElement(String locator, String locValue) {
 		try {
 			switch(locator) {
@@ -127,10 +128,12 @@ public class SeMethods extends Reporter implements WdMethods{
 		return null;
 	}
 
+	@Override
 	public WebElement locateElement(String locValue) {
 		return driver.findElementById(locValue);
 	}
 
+	@Override
 	public void type(WebElement ele, String data) {
 		try {
 			ele.clear();
@@ -144,6 +147,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 
+	@Override
 	public void click(WebElement ele) {
 		String text = "";
 		try {
@@ -174,6 +178,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		} 
 	}
 
+	@Override
 	public String getText(WebElement ele) {	
 		String bReturn = "";
 		try {
@@ -204,6 +209,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		return bReturn;
 	}
 
+	@Override
 	public void selectDropDownUsingText(WebElement ele, String value) {
 		try {
 			new Select(ele).selectByVisibleText(value);
@@ -214,6 +220,7 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	}
 
+	@Override
 	public void selectDropDownUsingIndex(WebElement ele, int index) {
 		try {
 			new Select(ele).selectByIndex(index);
@@ -224,6 +231,7 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	}
 
+	@Override
 	public boolean verifyTitle(String title) {
 		boolean bReturn =false;
 		try {
@@ -241,6 +249,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		
 	}
 
+	@Override
 	public void verifyExactText(WebElement ele, String expectedText) {
 		try {
 			if(getText(ele).equals(expectedText)) {
@@ -254,6 +263,7 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	}
 
+	@Override
 	public void verifyPartialText(WebElement ele, String expectedText) {
 		try {
 			if(getText(ele).contains(expectedText)) {
@@ -266,6 +276,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		} 
 	}
 
+	@Override
 	public void verifyExactAttribute(WebElement ele, String attribute, String value) {
 		try {
 			if(getAttribute(ele, attribute).equals(value)) {
@@ -279,6 +290,7 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	}
 
+	@Override
 	public void verifyPartialAttribute(WebElement ele, String attribute, String value) {
 		try {
 			if(getAttribute(ele, attribute).contains(value)) {
@@ -291,6 +303,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 
+	@Override
 	public void verifySelected(WebElement ele) {
 		try {
 			if(ele.isSelected()) {
@@ -303,6 +316,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 
+	@Override
 	public void verifyDisplayed(WebElement ele) {
 		try {
 			if(ele.isDisplayed()) {
@@ -315,6 +329,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		} 
 	}
 
+	@Override
 	public void switchToWindow(int index) {
 		try {
 			Set<String> allWindowHandles = driver.getWindowHandles();
@@ -328,6 +343,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 
+	@Override
 	public void switchToFrame(WebElement ele) {
 		try {
 			driver.switchTo().frame(ele);
@@ -339,6 +355,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		} 
 	}
 
+	@Override
 	public void acceptAlert() {
 		String text = "";		
 		try {
@@ -353,6 +370,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}  
 	}
 
+	@Override
 	public void dismissAlert() {
 		String text = "";		
 		try {
@@ -368,6 +386,7 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	}
 
+	@Override
 	public String getAlertText() {
 		String text = "";		
 		try {
@@ -381,6 +400,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		return text;
 	}
 
+	@Override
 	public long takeSnap(){
 		long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L; 
 		try {
@@ -394,6 +414,7 @@ public class SeMethods extends Reporter implements WdMethods{
 	}
 
 
+	@Override
 	public void closeBrowser() {
 		try {
 			driver.close();
@@ -403,6 +424,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 
+	@Override
 	public void closeAllBrowsers() {
 		try {
 			driver.quit();
@@ -412,6 +434,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		}
 	}
 
+	@Override
 	public void explicitWait(String xpath) {
 
 WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -423,6 +446,7 @@ takeSnap();
 	}
 	
 	
+	@Override
 	public void explicitWaitsend(String xpath, String value) {
 
 		WebDriverWait wait = new WebDriverWait(driver, 90);
@@ -432,6 +456,7 @@ takeSnap();
 		System.out.println("element visible");
 		takeSnap();
 			}
+	@Override
 	public void pressesc() {
 		
 	
@@ -442,6 +467,7 @@ takeSnap();
 			
 	}
 	
+	@Override
 	public void pressescape() {
 		
 		Robot robot;
@@ -457,12 +483,14 @@ takeSnap();
 		takeSnap();
 	}
 	
+	@Override
 	public void typeafterclearing(WebElement ele, String data)
 	{
 		ele.sendKeys(Keys.chord(Keys.CONTROL, "a"), data);
 		takeSnap();
 	}
 	
+	@Override
 	public void popupissue() throws AWTException
 	{
 		try {
@@ -491,7 +519,25 @@ takeSnap();
 	}
 
 	
-	public void pageScrolltwice () throws AWTException{
+	@Override
+	public void pageScrollbottom () throws AWTException{
+		((JavascriptExecutor) driver)
+	     .executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		
+		
+		takeSnap();
+		
+	}
+	@Override
+	public void rightclick(WebElement ele) {
+	
+	Actions se = new Actions(driver);
+	se.moveToElement(ele);
+	se.contextClick(ele).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+	}
+	@Override
+	public void pageScrolltwice() throws AWTException
+	{
 		Robot robot = new Robot();
 		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
@@ -502,6 +548,7 @@ takeSnap();
 		takeSnap();
 		
 	}
+	@Override
 	public void pageScroll() throws AWTException
 	{
 		Robot robot = new Robot();
@@ -512,6 +559,7 @@ takeSnap();
 		takeSnap();
 	}
 	
+	@Override
 	public void pageScrollUp() throws AWTException
 	{
 		Robot robot = new Robot();
@@ -520,6 +568,7 @@ takeSnap();
 		takeSnap();
 	}
 	
+	@Override
 	public void FluentWait()
 	{
 try {
@@ -533,6 +582,7 @@ takeSnap();
 	}
 	
 	
+	@Override
 	public void mouseHover(WebElement ele) {
 		
 		Actions se = new Actions(driver);
@@ -541,6 +591,7 @@ takeSnap();
 		takeSnap();
 	}
 	
+	@Override
 	public void mouseHove1r(WebElement ele) {
 		
 		Actions se = new Actions(driver);
@@ -555,6 +606,7 @@ takeSnap();
 		takeSnap();
 	}
 	
+@Override
 public void mouseHove3r(WebElement ele) {
 		
 		Actions se = new Actions(driver);
@@ -564,6 +616,7 @@ public void mouseHove3r(WebElement ele) {
 
 		takeSnap();
 }
+@Override
 public void mouseHove4r(WebElement ele) {	
 	Actions se = new Actions(driver);
 se.click(ele).build().perform();
@@ -576,6 +629,7 @@ public void mouseHove5r(WebElement ele) {
 }
 	
 	
+@Override
 public void mouseHove2r(WebElement ele) {
 		
 		Actions se = new Actions(driver);
@@ -584,6 +638,7 @@ public void mouseHove2r(WebElement ele) {
 		takeSnap();
 }
 	
+	@Override
 	public void mouseHoverclick(WebElement ele) {
 		Actions se = new Actions(driver);
 		se.moveToElement(ele).build().perform();
@@ -591,23 +646,27 @@ public void mouseHove2r(WebElement ele) {
 		takeSnap();
 		
 	}
+@Override
 public void refresh() {
 	
 	driver.navigate().refresh();
 }
 
+@Override
 public void highLighterMethod(WebDriver driver, WebElement element){
 	 JavascriptExecutor js = (JavascriptExecutor) driver;
 	 js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
 	 takeSnap();
 	 }
 
+@Override
 public void scrollBottom() {
 	((JavascriptExecutor) driver)
     .executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	takeSnap();
 }
 
+@Override
 public void newTab() {
 	
 	List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles());
@@ -626,6 +685,7 @@ public void newTab() {
 	driver.switchTo().window(browserTabs.get(0));
 }
 
+@Override
 public void newTabwithoutclose() {
 	
 	List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles());
@@ -642,12 +702,14 @@ public void newTabwithoutclose() {
 	
 }
 
+@Override
 public void typewithtab(WebElement ele, String data) {
 	
 	ele.sendKeys(data, Keys.TAB);
 	
 }
 
+@Override
 public void smallWait() {
 	
 	try {
@@ -658,12 +720,14 @@ public void smallWait() {
 	}
 }
 
+@Override
 public void backButton() {
 	
 	driver.navigate().back();
 	takeSnap();
 }
 
+@Override
 public void robotpressdown()
 {
 	Robot robot;
@@ -682,6 +746,7 @@ public void robotpressdown()
 	
 }
 
+@Override
 public void footerlink() {
 
 	WebElement footer= driver.findElement(By.xpath("//*[contains(@class,'main-footer container')]")); // Get Footer element which contains all footer links
@@ -693,12 +758,14 @@ public void footerlink() {
 	 
 }
 
+@Override
 public void jsclick() {
 	
-	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	JavascriptExecutor jse = driver;
 	jse.executeScript("document.getElementsByClassName(\"btn btn-info btn-pagar btn-block\").click();");
 }
 
+@Override
 public void clickenter(){
 	Actions action = new Actions(driver);
 	action.sendKeys(Keys.ENTER).build().perform();

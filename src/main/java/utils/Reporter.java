@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.testng.annotations.AfterSuite;
-import org.zeroturnaround.zip.ZipUtil;
+//import org.zeroturnaround.zip.ZipUtil;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -19,12 +19,12 @@ public abstract class Reporter {
 	public static ExtentTest test, suiteTest;
 	public String testCaseName, testNodes, testDescription, category, authors;
 	@AfterSuite
-	public void zipFolder() {
-		ZipUtil.pack(new File("./reports/images"), new File("./reports/images.zip"));
-	}
+	//public void zipFolder() {
+		//ZipUtil.pack(new File("./reports/imagesnew"), new File("./reports/imagesnew.zip"));
+	//}
 	public void startResult() {
-		html = new ExtentHtmlReporter("./reports/images/stagingreport.html");
-		html.setAppendExisting(true);		
+		html = new ExtentHtmlReporter("./reports/images/stagingreportnew.html");
+		html.setAppendExisting(true);
 		extent = new ExtentReports();		
 		extent.attachReporter(html);	
 	}

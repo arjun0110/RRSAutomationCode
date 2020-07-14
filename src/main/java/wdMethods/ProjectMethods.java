@@ -24,6 +24,7 @@ public class ProjectMethods extends SeMethods{
 	public void beforeClass(){		
 		startTestModule(testCaseName, testDescription);	
 	}
+
 	@BeforeMethod
 	public void beforeMethod(){
 		test = startTestCase(testNodes);
@@ -31,8 +32,6 @@ public class ProjectMethods extends SeMethods{
 		test.assignAuthor(authors);
 		startApp(browserName);		
 	}
-
-	
 
 	@AfterSuite
 	public void afterSuite(){

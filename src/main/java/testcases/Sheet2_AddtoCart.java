@@ -30,9 +30,9 @@ public class Sheet2_AddtoCart extends ProjectMethods{
 			.clickproductlink()
 			.choosecolor()
 			.choosesize()
-			.addtocart()
-			.viewCart()
-			.verifycarttitle();
+			.addtocart();
+			//.viewCart();
+			
 			
 			
 			

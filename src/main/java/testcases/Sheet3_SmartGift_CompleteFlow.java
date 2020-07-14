@@ -50,12 +50,12 @@ public class Sheet3_SmartGift_CompleteFlow extends ProjectMethods{
 			.graganddrop()
 			.selectsize()
 			.shipping(fn, ln, add, zi, ci, st, fon, email)
-.thanku(notes)
-.googlemail()
-.gmaillogin(gee, pww)
-.checkEmail(emailSubject)
-.openmail()
-.placeord();
+.thanku(notes);
+//.googlemail()
+//.gmaillogin(gee, pww)
+//.checkEmail(emailSubject)
+//.openmail()
+//.placeord();
 			
 			
 			

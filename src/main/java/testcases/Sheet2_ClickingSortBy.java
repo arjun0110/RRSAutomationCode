@@ -15,7 +15,7 @@ public class Sheet2_ClickingSortBy extends ProjectMethods{
 		category="Smoke";
 		authors="arjun";
 		browserName="chrome";
-		dataSheetName="TC013";
+		dataSheetName="sort";
 		
 		
 	}

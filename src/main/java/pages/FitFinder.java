@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -38,8 +37,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickrunning()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", running);
+		click(running);
 		takeSnap();
 		return this;
 	}
@@ -49,8 +47,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickpavement()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", pavement);
+		click(pavement);
 		takeSnap();
 		return this;
 	}
@@ -60,8 +57,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickmileage()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", mileage);
+		click(mileage);
 		takeSnap();
 		return this;
 	}
@@ -78,8 +74,7 @@ public class FitFinder  extends ProjectMethods{
 			e.printStackTrace();
 		}
 	
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", next);
+		click(next);
 		takeSnap();
 		return this;
 	}
@@ -88,8 +83,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickhealthy()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", healthy);
+		click(healthy);
 		takeSnap();
 		return this;
 	}
@@ -99,8 +93,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickunder150()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", under150);
+		click(under150);
 		takeSnap();
 		return this;
 	}
@@ -111,8 +104,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickhigharch()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", higharch);
+		click(higharch);
 		takeSnap();
 		return this;
 	}
@@ -121,8 +113,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clicklegpos()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", legpos);
+		click(legpos);
 		takeSnap();
 		
 		return this;
@@ -133,8 +124,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickpain()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", pain);
+		click(pain);
 		takeSnap();
 		return this;
 	}
@@ -145,31 +135,29 @@ public class FitFinder  extends ProjectMethods{
 	{
 		
 	
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", level);
+		click(level);
+		verifyDisplayed(size);
 		takeSnap();
 		return this;
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[contains(@id,'prefs-size-variants.Shoe_Size%3A8')]")
+	@FindBy(how=How.XPATH,using="//*[contains(@id,'prefs-size-variants.Shoe_Size%3A10')]")
 	private WebElement size;
 	
 	public FitFinder clicksize()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", size);
+		click(size);
 		takeSnap();
 		return this;
 	}
 	
 	
-	@FindBy(how=How.XPATH,using=" //*[contains(@id,'prefs-width-variants.Shoe_Size%3A8%2Cvariants.widthGroup%3AMen%27s+Standard')]")
+	@FindBy(how=How.XPATH,using="//*[contains(@id,'prefs-width-variants.Shoe_Size%3A10%2Cvariants.widthGroup%3AMen%27s+Standard')]")
 	private WebElement width;
 	
 	public FitFinder clickwidth()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", width);
+		click(width);
 		takeSnap();
 		return this;
 	}
@@ -179,8 +167,7 @@ public class FitFinder  extends ProjectMethods{
 	
 	public FitFinder clickgetitnow()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", getitnow);
+		click(getitnow);
 		takeSnap();
 		return this;
 	}
@@ -203,8 +190,7 @@ private WebElement sizes;
 		click(color);
 		click(sizes);
 		click(widthd);
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", addtocart);
+		click(addtocart);
 		return this;
 	}
 	

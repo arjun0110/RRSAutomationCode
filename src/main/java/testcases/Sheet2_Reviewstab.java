@@ -3,8 +3,6 @@ package testcases;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.awt.AWTException;
-
 import pages.HomePage_RRS;
 import wdMethods.ProjectMethods;
 

@@ -160,9 +160,9 @@ click(next);
 	return this;
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/accessories/?cm_sp=nav-_-accessories-_-accessories']")
+	@FindBy(how=How.XPATH,using="//*[(@href='/rrs/accessories/')]")
 	private WebElement access;
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/accessories/insoles/?cm_sp=nav-_-gear-_-insoles']")
+	@FindBy(how=How.XPATH,using="//*[(@href='/rrs/accessories/insoles/')]")
 	private WebElement insole;
 	
 	public UserCreatedConfirmation accessories()
@@ -182,13 +182,19 @@ click(insole);
 		
 	
 click(insolechoose);
+try {
+	pageScrollUp();
+} catch (AWTException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
 	return this;
 	}
 	
 	
 	
 	
-	@FindBy(how=How.XPATH,using="//*[@id='20101_img']")
+	@FindBy(how=How.XPATH,using="//*[@id='20104_img']")
 	private WebElement shoe;
 	
 	public UserCreatedConfirmation chooseashoe()

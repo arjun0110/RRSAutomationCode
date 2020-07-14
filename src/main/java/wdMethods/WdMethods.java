@@ -3,12 +3,8 @@ package wdMethods;
 import java.awt.AWTException;
 import java.net.MalformedURLException;
 
-import org.openqa.selenium.ElementNotVisibleException;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public interface WdMethods {
 		
@@ -52,9 +48,9 @@ public interface WdMethods {
 		public void pressescape();
 public void popupissue() throws AWTException;
 		public void pageScroll () throws AWTException;
-		public void pageScrolltwice () throws AWTException;
+		public void pageScrollbottom () throws AWTException;
 		public void pageScrollUp() throws AWTException; 
-		
+		public void pageScrolltwice() throws AWTException;
 		public void refresh();
 		
 		public void FluentWait();
@@ -91,6 +87,7 @@ public void popupissue() throws AWTException;
 		
 		public void mouseHove4r(WebElement ele);
 		
+		public void rightclick(WebElement ele);
 		
 }
 

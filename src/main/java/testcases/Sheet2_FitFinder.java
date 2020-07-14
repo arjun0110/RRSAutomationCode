@@ -42,8 +42,8 @@ public class Sheet2_FitFinder extends ProjectMethods{
 		.clicknext()
 		.clicksize()
 		.clickwidth()
-		.clicknext()
-		.clickgetitnow()
-		.clickaddtocart();
+		.clicknext();
+		//.clickgetitnow()
+		//.clickaddtocart();
 	}
 }

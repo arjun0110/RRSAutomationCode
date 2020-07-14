@@ -41,7 +41,7 @@ public class Sheet2_kids_PDPcases  extends ProjectMethods{
 			.verifyvipprice()
 			.verifyquantity()
 			.verifyquantitydropdown()
-			.maxandminimage()
+			//.maxandminimage()
 			.verifydescription()
 			.verifyreviewskids()
 			.verifyvideoskids()

@@ -19,7 +19,7 @@ public class MyAccounts  extends ProjectMethods{
 	private WebElement emailfield;
 	
 	Random randomGenerator = new Random();  
-	int randomInt = randomGenerator.nextInt(1000);
+	int randomInt = randomGenerator.nextInt(10100);
 
 public MyAccounts enteremail(String email) {
 	

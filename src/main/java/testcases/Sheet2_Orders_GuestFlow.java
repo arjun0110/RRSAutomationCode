@@ -30,13 +30,8 @@ public class Sheet2_Orders_GuestFlow extends ProjectMethods{
 			.clickproductlink()
 			.choosecolor()
 			.choosesize()
-			.addtocart()
-			.viewCart()
-			.verifycarttitle()
-			.guestbutton()
-			.signinbutton()
-			.paypalbutton()
-			
+			.addtocartguest()
+		
 			.clickGuest()
 			.withoutvipbutton()
 			.withvipbutton()

@@ -38,13 +38,13 @@ public class Sheet2_RRS_Kids_order_Loginflow  extends ProjectMethods{
 			.choosecolorforsecondproductkid()
 			.choosesizekid()
 			.addtocart()
-			.viewCart()
-			.emailsection()
-			.shippingsection()
-			.billingsection()
+			.viewCartforkid();
+			//.emailsection()
+			//.shippingsection()
+			//billingsection()
 		
-			.placeorderButtonclick()
-			.orderConfirmationmessage();
+			//.placeorderButtonclick()
+			//.orderConfirmationmessage();
 			
 			
 			

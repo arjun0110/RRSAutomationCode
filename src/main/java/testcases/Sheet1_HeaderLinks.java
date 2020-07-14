@@ -11,7 +11,7 @@ import wdMethods.ProjectMethods;
 public class Sheet1_HeaderLinks extends ProjectMethods{
 	@BeforeTest
 	public void setData() {
-		testCaseName="vERIFY THE HEADER LINKS";
+		testCaseName="VERIFY THE HEADER LINKS";
 		testDescription="Verify whether the header links are present or present or not";
 		testNodes="test";
 		category="Smoke";
@@ -20,7 +20,7 @@ public class Sheet1_HeaderLinks extends ProjectMethods{
 		dataSheetName="TC001";
 	}
 	@Test
-	public void seachaBrand() throws AWTException {
+	public void headerlink() throws AWTException {
 		
 		new HomePage_RRS()
 		.verifyrrs()

@@ -2,7 +2,6 @@ package pages;
 
 import java.awt.AWTException;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -15,6 +14,170 @@ public class HomePage_RRS extends ProjectMethods{
 	public HomePage_RRS() {		
 		PageFactory.initElements(driver,this);
 	}	
+	
+	@FindBy(how=How.XPATH,using="//*[@href='/rrs/category/mens-hiking-shoes/']")
+	private WebElement hiking;
+	
+	
+	public HomePage_RRS moseuhovermen() {
+		
+		refresh();
+		mouseHover(men);
+		click(hiking);
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@class='breadcrumbs']")
+	private WebElement bread;
+	
+public HomePage_RRS verifybreadcrumbs() {
+	
+		verifyDisplayed(bread);
+		highLighterMethod(driver, bread);
+		return this;
+	}
+
+@FindBy(how=How.XPATH,using="//*[contains(text(),'Home /')]")
+private WebElement home;
+
+public HomePage_RRS clickhome() {
+click(home);
+	return this;
+	
+}
+
+@FindBy(how=How.XPATH,using="//*[@id='Query']")
+private WebElement search;
+
+public HomePage_RRS verifyhomepage() {
+verifyDisplayed(search);
+	return this;
+}
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Stay Connected')]")
+	private WebElement connected;
+	
+	public HomePage_RRS verifystayconnected()
+	{
+		refresh();
+		
+		try {
+			pageScrollbottom();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		verifyDisplayed(connected);
+		highLighterMethod(driver, connected);
+		return this;
+	}
+	
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Company Info')]")
+	private WebElement companyinfo;
+	
+	public HomePage_RRS verifycompanyinfo()
+	{
+		
+		verifyDisplayed(companyinfo);
+		highLighterMethod(driver, companyinfo);
+		
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Customer Service')]")
+	private WebElement customer;
+	
+	public HomePage_RRS verifycustomerservice()
+	{
+		try {
+			pageScrollbottom();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		verifyDisplayed(customer);
+		highLighterMethod(driver, customer);
+		
+		return this;
+	}
+	
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Further Information')]")
+	private WebElement information;
+	
+	public HomePage_RRS verifyfurtherinformation()
+	{
+		
+		verifyDisplayed(information);
+		highLighterMethod(driver, information);
+		
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Gift Cards')]")
+	private WebElement giftcr;
+	
+	public HomePage_RRS verifygiftcards()
+	{
+		
+		verifyDisplayed(giftcr);
+		highLighterMethod(driver, giftcr);
+		
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"rrs-footer-root\"]/section[2]/div[3]/h2")
+	private WebElement vipfm;
+	
+	public HomePage_RRS verifyvipfamily()
+	{
+		
+		verifyDisplayed(vipfm);
+		highLighterMethod(driver, vipfm);
+		
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"feeds2\"]/h4[2]")
+	private WebElement learn;
+	
+	public HomePage_RRS verifylearn()
+	{
+		
+		verifyDisplayed(learn);
+		highLighterMethod(driver, learn);
+		
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'We Care')]")
+	private WebElement wecare;
+	
+	public HomePage_RRS verifywecare()
+	{
+		
+		verifyDisplayed(wecare);
+		highLighterMethod(driver, wecare);
+		
+		return this;
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Site Info')]")
+	private WebElement info;
+	
+	public HomePage_RRS verifysiteinfo()
+	{
+		
+		verifyDisplayed(info);
+		highLighterMethod(driver, info);
+		
+		return this;
+	}
+	
+	
+	
 	
 	@FindBy(how=How.XPATH,using="//*[@class='active_rrs']")
 	private WebElement rrs;
@@ -41,7 +204,7 @@ public class HomePage_RRS extends ProjectMethods{
 	
 	public HomePage_RRS verifyrrskids()
 	{
-		refresh();
+		
 		verifyDisplayed(rrskid);
 		highLighterMethod(driver, rrskid);
 		verifyDisplayed(chat);
@@ -59,10 +222,10 @@ public class HomePage_RRS extends ProjectMethods{
 	@FindBy(how=How.XPATH,using="//*[@id=\"rrsglobalnav-womens\"]/p")
 	private WebElement women;
 	
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/kids/index.jsp?cm_sp=nav-_-kids-_-kids']")
+	@FindBy(how=How.XPATH,using="//*[@id='rrsglobalnav-kids']/a")
 	private WebElement kids;
 	
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/accessories/?cm_sp=nav-_-accessories-_-accessories']")
+	@FindBy(how=How.XPATH,using="//*[@href='/rrs/accessories/']")
 	private WebElement accessories;
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"rrsglobalnav-nutrition\"]/a")
@@ -71,13 +234,13 @@ public class HomePage_RRS extends ProjectMethods{
 	@FindBy(how=How.XPATH,using="//*[@id='rrsglobalnav-brands']/a")
 	private WebElement brand;
 	
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/outlet/?cm_sp=nav-_-sale-_-sale']")
+	@FindBy(how=How.XPATH,using="//*[@href='/rrs/outlet/']")
 	private WebElement sale;
 	
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/product/shoe-dog.jsp?cm_sp=nav-_-shoedog-_-shoefinder']")
+	@FindBy(how=How.XPATH,using="//*[@href='/rrs/product/shoe-dog.jsp']")
 	private WebElement fitfinder;
 	
-	@FindBy(how=How.XPATH,using="//*[@href='/rrs/products/RAC55/']")
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'VIP FAMILY')]")
 	private WebElement vip;
 	
 	public HomePage_RRS verifymenu()
@@ -183,7 +346,7 @@ public class HomePage_RRS extends ProjectMethods{
 	private WebElement searchfieldkids;
 	
 	
-	@FindBy(how=How.XPATH,using="//*[contains(@href,'/rrs/brand/?cm_sp=nav-_-brands-_-brands')]")
+	@FindBy(how=How.XPATH,using="//*[(@href='/rrs/brand/')]")
 	private WebElement brands;
 	
 	public HomePage_RRS searchbrands()
@@ -194,14 +357,29 @@ public class HomePage_RRS extends ProjectMethods{
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[contains(@title,'R Gear, Shop Now')]")
+
 	private WebElement rgear;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@href='/rrs/brand/Road_Runner_Sports/']")
+	private WebElement rgearbrand;
+	
 	
 	public Searchresults rgearbrand()
 	{
 		click(rgear);
+		click(rgearbrand);
 		return new Searchresults();
 	}
 
+	@FindBy(how=How.XPATH,using="//*[contains(@title,'Garmin')]")
+	private WebElement garminbrand;
+	
+	public Searchresults garmin() {
+		
+		click(garminbrand);
+		return new Searchresults();
+	}
 	
 	public Searchresults entersearchkey(String xpath,String data)
 	{
@@ -262,7 +440,7 @@ public class HomePage_RRS extends ProjectMethods{
 		
 	}
 
-	@FindBy(how=How.XPATH,using="//div[@class='login-section']/ul/li/a")
+	@FindBy(how=How.XPATH,using="//*[@class='loginUrl']")
 	private WebElement myaccountlink;
 	
 	public MyAccounts clickmyaccount()

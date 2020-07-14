@@ -8,11 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.text.Document;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -167,7 +163,7 @@ public class giftlink  extends ProjectMethods{
 		}
 		driver.switchTo().window(subWindowHandler);
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = driver;
 		js.executeScript("arguments[0].click();", getit);
 	
 		try {
@@ -256,13 +252,15 @@ public class giftlink  extends ProjectMethods{
 		  
 		  dismissAlert();
 		    
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = driver;
 			js.executeScript("arguments[0].click();", navigation);
 		    mouseHoverclick(logout);
 			return this;
 		
 	}
 	
+	@FindBy(how=How.XPATH,using="//*[@data-g-label='Sign in']")
+	private WebElement signin;
 	public giftlink googlemail()
 	{
 		Robot robot;
@@ -279,6 +277,7 @@ public class giftlink  extends ProjectMethods{
 		    ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		    driver.switchTo().window(tabs.get(2)); //switches to new tab
 		    driver.get("https://www.gmail.com");
+		    
 		    return this;
 	}
 	
@@ -288,6 +287,7 @@ public class giftlink  extends ProjectMethods{
 	
 	public giftlink enteremail1(String email)
 	{
+		click(signin);
 		explicitWait("//*[contains(@type,'email')]");
 		type(emailid,email);
 		return this;
@@ -480,7 +480,7 @@ public class giftlink  extends ProjectMethods{
 	public giftlink thanku(String notes) {
 		
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = driver;
 		js.executeScript("arguments[0].click();", thanks);
 		type(thanks,notes);
 		click(sub);
@@ -498,7 +498,7 @@ public class giftlink  extends ProjectMethods{
 	
 	public giftlink gmaillogin(String gee,String pww) {
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = driver;
 		//js.executeScript("arguments[0].click();", gm);
 		js.executeScript("arguments[0].click();", ge);
 		type(ge,gee);
@@ -542,7 +542,7 @@ public class giftlink  extends ProjectMethods{
 	{
 		highLighterMethod(driver, buy);
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = driver;
 	
 		js.executeScript("arguments[0].click();", buy);
 		return this;

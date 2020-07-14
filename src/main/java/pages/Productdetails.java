@@ -16,7 +16,7 @@ public class Productdetails extends ProjectMethods{
 	
 }
 	
-	@FindBy(how=How.XPATH,using="//*[@src='/rrs/kids/images/icons/stars/star-rating-sml-5.0.png']")
+	@FindBy(how=How.XPATH,using="//*[@src='/rrs/kids/images/icons/stars/star-rating-sml-4.5.png']")
 	private WebElement reviewstar;
 	
 	public Productdetails verifyreviewinpdp() 
@@ -25,6 +25,16 @@ public class Productdetails extends ProjectMethods{
 		verifyDisplayed(reviewstar);
 		return this;
 	}
+	
+	@FindBy(how=How.XPATH,using="//*[contains(@data-swatch-selection,'Black')]")
+	private WebElement garmincolor;
+	
+	public Productdetails choosegarmincolor() 
+	{
+		click(garmincolor);
+		return this;
+	}
+	
 	
 	@FindBy(how=How.XPATH,using="//*[@class='pr-snippet-link pr-snippet-reviewlink']")
 	private WebElement reviewstars;
@@ -483,7 +493,7 @@ click(reviews);
 		return this;
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[(@name='1Y')]")
+	@FindBy(how=How.XPATH,using="//*[(@name='1.5Y')]")
 	private WebElement sizekid;
 	
 	public Productdetails choosesizekid() 
@@ -544,14 +554,114 @@ click(reviews);
 
 	@FindBy(how=How.XPATH,using="//*[contains(@id,'addToCartLink')]")
 	private WebElement addtocartbutton;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='shoppingCartSummaryNew']")
+	private WebElement viewCart;
 	public Productdetails addtocart() 
 	{
 		highLighterMethod(driver, addtocartbutton);
 		click(addtocartbutton);	
 		
 		
+		click(viewCart);
 		
 		return this;
+	}
+	
+	public Productdetails addtocartflycart() 
+	{
+		highLighterMethod(driver, addtocartbutton);
+		click(addtocartbutton);	
+		
+		
+		
+		
+		return this;
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@class='product-title']")
+	private WebElement prodTitle;
+	
+	@FindBy(how=How.XPATH,using="//*[@class='product-price-info']")
+	private WebElement prodprice;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='mini-viewCart-btn']")
+	private WebElement viewcart;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='mini-checkout-btn']")
+	private WebElement checkout;
+	
+	@FindBy(how=How.XPATH,using="//*[@class='rplus-link']")
+	private WebElement checkoutbutton;
+	
+	public Productdetails verifyflycart() 
+	{
+		highLighterMethod(driver, prodTitle);
+		verifyDisplayed(prodTitle);	
+		
+		highLighterMethod(driver, prodprice);
+		verifyDisplayed(prodprice);	
+		highLighterMethod(driver, viewcart);
+		verifyDisplayed(viewcart);	
+		highLighterMethod(driver, checkout);
+		verifyDisplayed(checkout);	
+		
+		
+		
+		
+		return this;
+	}
+	
+	public Productdetails clickviewCart() 
+	{
+		highLighterMethod(driver, viewcart);
+		click(viewcart);	
+		
+		
+		
+		
+		return this;
+	}
+	
+	public OrderSummary clickcheckoutcart() 
+	{
+		highLighterMethod(driver, checkout);
+		click(checkout);	
+		click(checkoutbutton);
+		highLighterMethod(driver, carttitle);
+		verifyDisplayed(carttitle);	
+		
+		
+		
+		return new OrderSummary();
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@class='cart-title']")
+	private WebElement carttitle;
+	
+	public Productdetails verifycarttitle() 
+	{
+		highLighterMethod(driver, carttitle);
+		verifyDisplayed(carttitle);	
+		
+		
+		
+		
+		return this;
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='shoppingCartSummaryNew']")
+	private WebElement viewCarts;
+	public ViewCart addtocartguest() 
+	{
+		highLighterMethod(driver, addtocartbutton);
+		click(addtocartbutton);	
+		
+		
+		click(viewCarts);
+		
+		return new ViewCart();
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id='addToCartLinkKids']")
@@ -561,7 +671,7 @@ click(reviews);
 		highLighterMethod(driver, addtocartbuttonkids);
 		click(addtocartbuttonkids);	
 		
-		
+		click(viewCarts);
 		
 		return this;
 	}
@@ -577,14 +687,53 @@ click(reviews);
 		return this;
 	}
 	
+	@FindBy(how=How.XPATH,using="//*[@class='checkout_guest checkout-guest-wrap-btn']")
+	private WebElement guest;
+	
+	public ViewCart clickGuestbutton() 
+	{
+		
+		click(guest);
+		return new ViewCart();
+	}
+	
 	@FindBy(how=How.XPATH,using="//*[contains(@id,'viewCartLink')]")
 	private WebElement cart;
+	@FindBy(how=How.XPATH,using="//*[@alt='Submit Order']")
+	private WebElement submitOrder;
 	public ViewCart viewCart() 
 	{
 		
 		
-		click(cart);
+		//click(cart);
+		click(submitOrder);
 		
+		
+		return new ViewCart();
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[contains(@class,'checkout-button')]")
+	private WebElement checout;
+	@FindBy(how=How.XPATH,using="//*[@id='clickButton']")
+	private WebElement submit;
+	public ViewCart viewCartforkid() 
+	{
+		
+		
+		click(checout);
+		click(submit);
+		
+		
+		return new ViewCart();
+	}
+	@FindBy(how=How.XPATH,using="//*[contains(@class,'checkout_guest checkout-guest-wrap-btn')]")
+	private WebElement guests;
+	public ViewCart guestchecout() 
+	{
+		
+		
+		//click(cart);
+		click(guests);
 		
 		
 		return new ViewCart();
@@ -628,7 +777,7 @@ click(reviews);
 		return new ViewCart();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@name='Black/Red']")
+	@FindBy(how=How.XPATH,using="//*[@name='Coral/White']")
 	private WebElement colorshoe;
 	public Productdetails choosecolorofshoe() 
 	{

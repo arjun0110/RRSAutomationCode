@@ -27,7 +27,17 @@ private WebElement gender;
 		highLighterMethod(driver, gender);
 		return this;
 	}
-	
+
+	@FindBy(how=How.XPATH,using="//*[@class='content shoe-list']/figure[1]")
+	private WebElement garminfirstproduct;
+		
+		public Productdetails clickgarminproduct() 
+		{
+		
+		click(garminfirstproduct);
+			return new Productdetails();
+		}
+		
 	@FindBy(how=How.XPATH,using="//*[contains(@id,'Age Group')]/h3/a")
 	private WebElement age;
 	
@@ -39,6 +49,12 @@ private WebElement gender;
 		highLighterMethod(driver, sort);
 		click(sort);
 		robotpressdown();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return this;
 	}
 	
@@ -378,10 +394,10 @@ highLighterMethod(driver, showperpage);
 		return new Newpageresults();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[contains(@id,'15425_img_url')]")
+	@FindBy(how=How.XPATH,using="//*[contains(@id,'15425_brand')]")
 	private WebElement productLink;
 	
-	@FindBy(how=How.XPATH,using="//*[@src='/rrs/img/icons/stars/stars_small-4.0.png']")
+	@FindBy(how=How.XPATH,using="//*[@src='/rrs/img/icons/stars/stars_small-3.0.png']")
 	private WebElement reviews;
 	
 	public Searchresults reviewstars()
@@ -405,7 +421,7 @@ highLighterMethod(driver, showperpage);
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = driver;
 		js.executeScript("arguments[0].click();", productLink);
 
 		return new Productdetails();
@@ -455,7 +471,7 @@ highLighterMethod(driver, showperpage);
 		return new Searchresults();
 		
 	}
-	@FindBy(how=How.XPATH,using="//*[contains(@id,'15425_img_url')]")
+	@FindBy(how=How.XPATH,using="//*[contains(@id,'15425_brand')]")
 	private WebElement secproductLink;
 	
 	public Productdetails clickproductlinksecondtime()
@@ -467,21 +483,16 @@ highLighterMethod(driver, showperpage);
 		e.printStackTrace();
 	}	
 
-JavascriptExecutor js = (JavascriptExecutor)driver;
-js.executeScript("arguments[0].click();", secproductLink);
-try {
-	Thread.sleep(4000);
-} catch (InterruptedException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
+
+	click(secproductLink);
+
 		return new Productdetails();
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[contains(@id,'13095_img')]")
 	private WebElement secproductLinkkid;
 	
-	@FindBy(how=How.XPATH,using="//*[@src='/rrs/kids/images/icons/stars/star-rating-sml-5.0.png']")
+	@FindBy(how=How.XPATH,using="//*[@src='/rrs/kids/images/icons/stars/star-rating-sml-4.5.png']")
 	private WebElement starrating;
 	
 	public Productdetails clickproductlinksecondtimekid()
@@ -489,7 +500,7 @@ try {
 	
 	
 
-JavascriptExecutor js = (JavascriptExecutor)driver;
+JavascriptExecutor js = driver;
 js.executeScript("arguments[0].click();", secproductLinkkid);
 try {
 	Thread.sleep(4000);
@@ -507,7 +518,7 @@ try {
 	highLighterMethod(driver, starrating);
 	verifyDisplayed(starrating);
 
-JavascriptExecutor js = (JavascriptExecutor)driver;
+JavascriptExecutor js = driver;
 js.executeScript("arguments[0].click();", secproductLinkkid);
 try {
 	Thread.sleep(4000);

@@ -21,7 +21,7 @@ public class Sheet2_kids_reviews  extends ProjectMethods{
 	}
 	
 	@Test(dataProvider="fetchData")
-	public void orderswithLoginforkids(String email, String password,String brandname)  {
+	public void kidsreview(String email, String password,String brandname)  {
 		
 		
 			new HomePage_RRS()
